@@ -52,12 +52,12 @@ func main() {
 
 	// Masukan matrix A dan B
 	a := [][]int{
-		{1, 2},
-		{3, 4},
+		{rand.Intn(limit), rand.Intn(limit)},
+		{rand.Intn(limit), rand.Intn(limit)},
 	}
 	b := [][]int{
-		{5, 6},
-		{7, 8},
+		{rand.Intn(limit), rand.Intn(limit)},
+		{rand.Intn(limit), rand.Intn(limit)},
 	}
 	fmt.Printf("Matrix A: %v\nMatrix B: %v\n", a, b)
 
@@ -73,9 +73,14 @@ func main() {
 	fmt.Println("\nSoal 4: Transformasi Baris")
 
 	// Matriks M
-	m := [][]int{
-		{1, 2},
-		{10, 5},
+	n4 := 5
+
+	m := make([][]int, n4)
+	for i := 0; i < n4; i++ {
+		m[i] = make([]int, n4)
+		for j := 0; j < n4; j++ {
+			m[i][j] = rand.Intn(limit) + 1
+		}
 	}
 
 	fmt.Println("Matrix M (Generated):", m)
@@ -117,6 +122,27 @@ func main() {
 	fmt.Println()
 
 	fmt.Printf("HASIL AKHIR Suku ke-%d: %d\n", n, hasilAkhir)
+
+	// soal 6 Analisis Kedekatan Deret Geometri
+	fmt.Println("\nSoal 6: Analisis Kedekatan Deret Geometri")
+	var aGeo, rGeo float64
+	var nGeo int
+
+	fmt.Print("Masukkan a: ")
+	fmt.Scan(&aGeo)
+	fmt.Print("Masukkan r: ")
+	fmt.Scan(&rGeo)
+	fmt.Print("Masukkan N: ")
+	fmt.Scan(&nGeo)
+
+	// Panggil fungsi GeometriKedekatan dari package deret
+	sn, sinf, persen := deret.GeometriKedekatan(aGeo, rGeo, nGeo)
+
+	fmt.Printf("\nInput Paket: a=%.2f, r=%.2f, N=%d\n", aGeo, rGeo, nGeo)
+	fmt.Printf("Sum Berhingga S(%d): %.2f\n", nGeo, sn)
+	fmt.Printf("Sum Tak Hingga S(inf): %.2f\n", sinf)
+	fmt.Printf("Persentase Kedekatan: %.2f%%\n", persen)
+
 }
 
 func randomSlice(n, limit int) []int {
