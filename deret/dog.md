@@ -1,40 +1,15 @@
-# 🔴 POTENSI DANGER (Bukan Error, tapi Catatan)
+# tugas
 
-⚠️ 1. Matrix Tidak Dinamis
+Hitung suku ke-N secara iteratif (pakai loop, bukan rekursi).
 
-Saat ini:
+Tampilkan proses perhitungan semua suku dari 0 sampai N.
 
-n := len(a)
+Format output-nya kira-kira seperti contoh:
 
-Artinya:
+INPUT: C1=3, C2=2, N=3
 
-Program asumsi matriks persegi
+Proses Perhitungan:
 
-Tidak cek:
+Suku 0: 1 | Suku 1: 1 | Suku 2: 5 | Suku 3: 17
 
-ukuran A == ukuran B
-
-kolom A == baris B
-
-🔴 Kalau dosen minta N×N dinamis dari input → ini bisa jadi masalah
-
-TAPI ❗
-👉 Soal contoh pakai 2×2 hardcode, jadi AMAN UNTUK SOAL 3
-
----
-
-🔥 TO-DO LIST SOAL 4 (WAJIB)
-✅ TO-DO LIST RESMI
-
-☑️ Generate / siapkan matriks M (N×N)
-☑️ Tampilkan matriks awal
-☑️ Tukar baris 0 ↔ N-1
-☑️ Tampilkan matriks setelah ditukar
-☑️ Cari nilai maksimum
-☑️ Simpan posisi (row, col)
-☑️ Print hasil akhir
-
-4️⃣ 🔧 DESIGN FUNGSI (matrix.go)
-Fungsi Tugas
-SwapRows(m [][]int, r1, r2 int) Tukar dua baris
-MaxValue(m [][]int) Cari max + posisi
+HASIL AKHIR Suku ke-3: 17

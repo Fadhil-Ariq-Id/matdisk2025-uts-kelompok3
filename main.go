@@ -5,6 +5,7 @@ import (
 	"math/rand"
 	"time"
 
+	"matdisk2025-uts-kelompok3/deret"
 	"matdisk2025-uts-kelompok3/himpunan"
 	"matdisk2025-uts-kelompok3/matrix"
 )
@@ -62,7 +63,7 @@ func main() {
 
 	// Hitung R = A x B
 	r := matrix.Multiply(a, b)
-	fmt.Printf("Matrix R: %v\n", r)
+	fmt.Printf("Hasil Matrix R: %v\n", r)
 
 	// Hitung trace R
 	tr := matrix.Trace(r)
@@ -82,11 +83,40 @@ func main() {
 	// Tukar baris 0 dan N-1
 	matrix.SwapRows(m, 0, len(m)-1)
 	fmt.Println("Menukar baris 0 dan", len(m)-1)
-	fmt.Println("Matrix M (Swapped):", m)
+	fmt.Println("Matrix M Terkini:", m)
 
 	// Cari nilai maksimum
 	max, row, col := matrix.MaxValue(m)
-	fmt.Printf("Nilai maksimum %d ditemukan di posisi (%d, %d)\n", max, row, col)
+	fmt.Printf("Nilai Maksimum %d ditemukan di posisi (%d, %d)\n", max, row, col)
+
+	// ===== SOAL 5 =====
+	fmt.Println("\nSoal 5: Relasi Rekurens Iteratif")
+
+	var c1, c2, n int
+	fmt.Print("Masukkan C1: ")
+	fmt.Scan(&c1)
+	fmt.Print("Masukkan C2: ")
+	fmt.Scan(&c2)
+	fmt.Print("Masukkan N: ")
+	fmt.Scan(&n)
+
+	// Panggil fungsi Deret dari package deret
+	hasilDeret, hasilAkhir := deret.Deret(c1, c2, n)
+
+	fmt.Printf("\nINPUT: C1=%d, C2=%d, N=%d\n", c1, c2, n)
+	fmt.Println("Proses Perhitungan:")
+
+	// Tampilkan semua suku
+	for i, v := range hasilDeret {
+		if i == len(hasilDeret)-1 {
+			fmt.Printf("Suku %d: %d", i, v)
+		} else {
+			fmt.Printf("Suku %d: %d | ", i, v)
+		}
+	}
+	fmt.Println()
+
+	fmt.Printf("HASIL AKHIR Suku ke-%d: %d\n", n, hasilAkhir)
 }
 
 func randomSlice(n, limit int) []int {
