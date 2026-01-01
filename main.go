@@ -61,11 +61,11 @@ func main() {
 	}
 	fmt.Printf("Matrix A: %v\nMatrix B: %v\n", a, b)
 
-	// Hitung R = A x B
+	//  R = A x B
 	r := matrix.Multiply(a, b)
 	fmt.Printf("Hasil Matrix R: %v\n", r)
 
-	// Hitung trace R
+	// trace R
 	tr := matrix.Trace(r)
 	fmt.Printf("Trace R: %d\n", tr)
 
@@ -85,27 +85,23 @@ func main() {
 
 	fmt.Println("Matrix M (Generated):", m)
 
-	// Tukar baris 0 dan N-1
+	//  N-1
 	matrix.SwapRows(m, 0, len(m)-1)
 	fmt.Println("Menukar baris 0 dan", len(m)-1)
 	fmt.Println("Matrix M Terkini:", m)
 
-	// Cari nilai maksimum
+	//  nilai maksimum
 	max, row, col := matrix.MaxValue(m)
 	fmt.Printf("Nilai Maksimum %d ditemukan di posisi (%d, %d)\n", max, row, col)
 
 	// ===== SOAL 5 =====
 	fmt.Println("\nSoal 5: Relasi Rekurens Iteratif")
 
-	var c1, c2, n int
-	fmt.Print("Masukkan C1: ")
-	fmt.Scan(&c1)
-	fmt.Print("Masukkan C2: ")
-	fmt.Scan(&c2)
-	fmt.Print("Masukkan N: ")
-	fmt.Scan(&n)
+	c1 := 3
+	c2 := 4
+	n := 11
 
-	// Panggil fungsi Deret dari package deret
+	// Deret
 	hasilDeret, hasilAkhir := deret.Deret(c1, c2, n)
 
 	fmt.Printf("\nINPUT: C1=%d, C2=%d, N=%d\n", c1, c2, n)
@@ -128,12 +124,9 @@ func main() {
 	var aGeo, rGeo float64
 	var nGeo int
 
-	fmt.Print("Masukkan a: ")
-	fmt.Scan(&aGeo)
-	fmt.Print("Masukkan r: ")
-	fmt.Scan(&rGeo)
-	fmt.Print("Masukkan N: ")
-	fmt.Scan(&nGeo)
+	aGeo = 7
+	rGeo = 0.3
+	nGeo = 12
 
 	// Panggil fungsi GeometriKedekatan dari package deret
 	sn, sinf, persen := deret.GeometriKedekatan(aGeo, rGeo, nGeo)

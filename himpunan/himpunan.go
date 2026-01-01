@@ -23,7 +23,7 @@ func SelisihSimetri(A, B []int) []int {
 	}
 	for _, b := range B {
 		if !contains(A, b) {
-			hasil = append(hasil, b)
+			hasil = append(hasil, b)	
 		}
 	}
 	return hasil
@@ -51,7 +51,7 @@ func Irisan(A, C []int) []int {
 	return hasil
 }
 
-// Gabungan manual
+// Gabungan
 func Gabungan(A, B []int) []int {
 	hasil := []int{}
 
@@ -68,7 +68,7 @@ func Gabungan(A, B []int) []int {
 	return hasil
 }
 
-// Filter Genap & < N/4
+//  Genap & < N/4
 func FilterGenapKurangDari(R []int, N int) []int {
 	hasil := []int{}
 	batas := N / 4
@@ -81,13 +81,17 @@ func FilterGenapKurangDari(R []int, N int) []int {
 	return hasil
 }
 
-// === FUNGSI UTAMA SESUAI SOAL ===
+
 func HitungR(A, B, C []int, N int) []int {
-	xor := SelisihSimetri(A, B)
-	diff := Selisih(xor, C)
-	inter := Irisan(A, C)
-	R := Gabungan(diff, inter)
-	return R
+   
+    xorAB := SelisihSimetri(A, B) 
+    
+    diff := Selisih(xorAB, C)
+    
+    inter := Irisan(A, C)
+    
+    R := Gabungan(diff, inter)
+    return R
 }
 
 /// === NOmor 2 ====
@@ -97,40 +101,26 @@ type Pasangan struct {
 	Y   int
 	Sum int
 }
-
 func CariPasanganSubset(S []int, K int) []Pasangan {
-	hasil := []Pasangan{}
-	used := make(map[string]bool)
+    hasil := []Pasangan{}
+    used := make(map[string]bool)
 
-	for i := 0; i < len(S); i++ {
-		for j := i + 1; j < len(S); j++ {
+    for i := 0; i < len(S); i++ {
+        for j := i + 1; j < len(S); j++ {
+            sum := S[i] + S[j]
+            if sum > K {
+                a, b := S[i], S[j]
+                if a > b {
+                    a, b = b, a
+                }
+                key := fmt.Sprintf("%d-%d", a, b)
 
-			// cegah pasangan x == y
-			// Elemen S digenerate acak, tidak dibatasi N
-			if S[i] == S[j] {
-				continue
-			}
-
-			sum := S[i] + S[j]
-			if sum > K {
-
-				// kunci pasangan unik (urutan tidak penting)
-				a, b := S[i], S[j]
-				if a > b {
-					a, b = b, a
-				}
-				key := fmt.Sprintf("%d-%d", a, b)
-
-				if !used[key] {
-					used[key] = true
-					hasil = append(hasil, Pasangan{
-						X:   a,
-						Y:   b,
-						Sum: sum,
-					})
-				}
-			}
-		}
-	}
-	return hasil
+                if !used[key] {
+                    used[key] = true
+                    hasil = append(hasil, Pasangan{X: a, Y: b, Sum: sum})
+                }
+            }
+        }
+    }
+    return hasil
 }
