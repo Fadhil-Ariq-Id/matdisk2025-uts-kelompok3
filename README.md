@@ -3,6 +3,9 @@ nama anggota kelompok :
 1. Nabhan
 2. Fadhil
 
+# rub :
+go run .
+
 
 branch utama adalah  "development"
 
