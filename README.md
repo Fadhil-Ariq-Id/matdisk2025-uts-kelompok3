@@ -3,7 +3,7 @@ nama anggota kelompok :
 1. Nabhan
 2. Fadhil
 
-# rub :
+# how to run  :
 go run .
 
 
