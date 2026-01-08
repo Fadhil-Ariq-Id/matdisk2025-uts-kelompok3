@@ -12,7 +12,7 @@ import (
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
-
+	fmt.Println("soal nomor 1")
 	// ===== SOAL 1 =====
 	N := 105
 	limit := 20
@@ -33,7 +33,7 @@ func main() {
 
 	// ===== SOAL 2 =====
 	fmt.Println("\nSoal 2: Analisis Pasangan Subset")
-
+	fmt.Println("soal nomor 2")
 	M := 9
 	K := 24
 	S := randomSlice(M, 30)
